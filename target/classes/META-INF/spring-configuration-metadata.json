@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "name": "user",
+      "type": "com.xindi.pojo.MyConfig",
+      "sourceType": "com.xindi.pojo.MyConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "user.age",
+      "type": "java.lang.Integer",
+      "sourceType": "com.xindi.pojo.MyConfig"
+    },
+    {
+      "name": "user.name",
+      "type": "java.lang.String",
+      "sourceType": "com.xindi.pojo.MyConfig"
+    },
+    {
+      "name": "user.sex",
+      "type": "java.lang.String",
+      "sourceType": "com.xindi.pojo.MyConfig"
+    }
+  ],
+  "hints": []
+}

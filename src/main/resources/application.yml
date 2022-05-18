@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+app:
+  name:
+    xxx:
+      yyy:
+        zzz: zhudi
+
+self:
+    custom:
+      config:
+        sdkSecret: abc123
+        host: https://www.zhudi.com
+        port: ${server.port}
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 500KB # 文件上传大小的限制
+      max-request-size: 2MB # 文件最大请求限制，用于批量
