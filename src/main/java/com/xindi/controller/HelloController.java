@@ -1,16 +1,16 @@
 package com.xindi.controller;
 
+import com.xindi.mapper.ColorMapper;
+import com.xindi.pojo.Color;
 import com.xindi.pojo.MyConfig;
-import com.xindi.utils.JSONResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.util.List;
 
 //@Controller
 @RestController
