@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8090
 
 app:
   name:
@@ -11,7 +11,7 @@ self:
     custom:
       config:
         sdkSecret: abc123
-        host: https://www.zhudi.com
+        host: https://www.ho61.cn
         port: ${server.port}
 
 spring:

@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Color {
-    private Integer colorId;
-    private String color;
+    public Integer id;
+    public Integer colorId;
+    public String color;
+    public String colors;
 }

@@ -17,8 +17,12 @@ import java.util.Map;
 @Slf4j
 public class TestController {
     @GetMapping("user/info")
-    public String test(){
-        return "test";
+    public JSONResult test(){
+        return JSONResult.ok();
+    }
+    @GetMapping("article")
+    public JSONResult article(){
+        return JSONResult.ok();
     }
     @Autowired
     public  ColorMapper colorMapper;
