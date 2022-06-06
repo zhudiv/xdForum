@@ -12,4 +12,5 @@ public class Styles {
     public Integer parentId;
     public String name;
     public Integer level;
+    public String src;
 }
