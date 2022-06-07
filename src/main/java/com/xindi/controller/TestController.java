@@ -44,4 +44,19 @@ public class TestController {
         List<Color> colorList = colorMapper.selectList(null);
         return JSONResult.ok(colorList);
     }
+
+    @PostMapping("color/insert")
+    public JSONResult colorInsert(@RequestBody Map<String, Object> map){
+        Color color = new Color();
+        color.color = map.get("color").toString();
+
+        List colorList  = colorMapper.selectByMap(map);
+
+        if(colorList.size() >= 1){
+            return JSONResult.errorMsg("已存在该颜色");
+        }else{
+            colorMapper.insert(color);
+            return JSONResult.ok();
+        }
+    }
 }
