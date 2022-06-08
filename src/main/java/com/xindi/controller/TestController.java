@@ -1,5 +1,7 @@
 package com.xindi.controller;
 
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.baomidou.mybatisplus.extension.conditions.update.LambdaUpdateChainWrapper;
 import com.xindi.mapper.ColorMapper;
 import com.xindi.mapper.UserMapper;
 import com.xindi.pojo.Color;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
@@ -58,5 +61,46 @@ public class TestController {
             colorMapper.insert(color);
             return JSONResult.ok();
         }
+    }
+
+    @PostMapping("color/delete")
+    public JSONResult colorDelete(@RequestBody Map<String, Object> map){
+        Color color = new Color();
+        color.id = (Integer) map.get("id");
+
+        try{
+            if(colorMapper.deleteById(color) > 0){
+                return JSONResult.ok();
+            }else{
+                return JSONResult.errorMsg("删除失败");
+            }
+
+        }catch (Exception e){
+
+            return JSONResult.errorMsg(e.toString());
+        }
+
+    }
+
+    @PostMapping("color/search")
+    public JSONResult colorListByID(@RequestBody Map<String, Object> map){
+        Color color = new Color();
+        color.id = (Integer) map.get("id");
+        try{
+         colorMapper.selectById((Serializable) map.get("id"));
+         return JSONResult.build(200, "查询成功", colorMapper.selectById((Serializable) map.get("id")));
+        }catch (Exception e){
+            return JSONResult.errorMsg(e.toString());
+        }
+    }
+
+    @PostMapping("color/edit")
+    public JSONResult colorEdit(@RequestBody Map<String, Object> map){
+        Color co= new Color((Integer) map.get("id"), (String) map.get("color"),  (String) map.get("colors"));
+        LambdaUpdateWrapper<Color> lambdaUpdateWrapper = new LambdaUpdateWrapper<>();
+        lambdaUpdateWrapper.eq(Color::getId, co.getId())
+                            .set(Color::getColors, co.getColors());
+        int rows = colorMapper.update(null, lambdaUpdateWrapper);
+        return JSONResult.ok();
     }
 }

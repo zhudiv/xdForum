@@ -58,11 +58,11 @@ public class JSONResult {
         return this.code == 200;
     }
 
-    public Integer getStatus() {
+    public Integer getCode() {
         return code;
     }
 
-    public void setStatus(Integer code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
 
