@@ -16,6 +16,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // 注册拦截器
-        registry.addInterceptor(userInfoInterceptor()).addPathPatterns("/upload");
+//        registry.addInterceptor(userInfoInterceptor()).addPathPatterns("/upload");
+        registry.addInterceptor(userInfoInterceptor()).addPathPatterns("/api/**");
     }
 }

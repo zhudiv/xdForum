@@ -67,7 +67,6 @@ public class TestController {
     public JSONResult colorDelete(@RequestBody Map<String, Object> map){
         Color color = new Color();
         color.id = (Integer) map.get("id");
-
         try{
             if(colorMapper.deleteById(color) > 0){
                 return JSONResult.ok();
@@ -76,7 +75,6 @@ public class TestController {
             }
 
         }catch (Exception e){
-
             return JSONResult.errorMsg(e.toString());
         }
 
